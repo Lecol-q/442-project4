@@ -1,0 +1,30 @@
+
+name: CoffeeMaker CI
+
+on:
+  push:
+    branches: [ "main", "ci-setup" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Run Tests and Mutation Testing
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run JUnit regression tests
+        run: ./mvnw -B test
+
+      - name: Run PIT mutation tests
+        run: ./mvnw -B org.pitest:pitest-maven:mutationCoverage
