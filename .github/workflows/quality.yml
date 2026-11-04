@@ -26,5 +26,10 @@ jobs:
       - name: Run JUnit regression tests
         run: ./mvnw -B test
 
+      - name: Run PIT mutation testing
+        run: ./mvnw test-compile org.pitest:pitest-maven:mutationCoverage
+
       - name: Run PIT mutation tests
         run: ./mvnw -B org.pitest:pitest-maven:mutationCoverage
+
+
