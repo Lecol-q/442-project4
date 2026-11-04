@@ -131,4 +131,11 @@ public class InventoryTest {
         recipe.setAmtChocolate(chocolate);
         return recipe;
     }
+
+    @Test
+    void setSugar_acceptsZero() {
+        inventory.setSugar(0);
+
+        assertEquals(0, inventory.getSugar());
+    }
 }

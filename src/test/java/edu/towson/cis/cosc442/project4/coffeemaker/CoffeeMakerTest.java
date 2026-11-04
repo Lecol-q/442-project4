@@ -126,9 +126,15 @@ public class CoffeeMakerTest {
     @Test
     void addInventory_addsPositiveAndZeroQuantities() {
         coffeeMaker.addInventory(2, 3, 0, 4);
-
         inventory = coffeeMaker.checkInventory();
 
+        assertEquals(17, inventory.getCoffee());
+        assertEquals(18, inventory.getMilk());
+        assertEquals(15, inventory.getSugar());
+        assertEquals(19, inventory.getChocolate());
+
+        inventory = coffeeMaker.checkInventory();
+        assertTrue(coffeeMaker.addInventory(0, 0, 0, 0));
         assertEquals(17, inventory.getCoffee());
         assertEquals(18, inventory.getMilk());
         assertEquals(15, inventory.getSugar());
