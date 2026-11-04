@@ -2,7 +2,7 @@ name: CoffeeMaker CI
 
 on:
   push:
-    branches: [ "main", "ci-setup" ]
+    branches: [ "main", "ci-setup", "quality-gate-demo" ]
   pull_request:
     branches: [ "main" ]
 
